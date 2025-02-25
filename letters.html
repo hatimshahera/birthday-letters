@@ -49,14 +49,14 @@
                 alert("Try again, my love! 💕");
             }
         }
-        function checkUnlockedLetters() {
-            for (let i = 1; i <= 24; i++) { // Loop through all letters
-                if (localStorage.getItem(`letter${i}_unlocked`) === "true") {
-                    document.getElementById(`link${i}`).style.display = "block";
-                }
-            }
-        }
-        checkUnlockedLetters();
+        // function checkUnlockedLetters() {
+        //     for (let i = 1; i <= 24; i++) { // Loop through all letters
+        //         if (localStorage.getItem(`letter${i}_unlocked`) === "true") {
+        //             document.getElementById(`link${i}`).style.display = "block";
+        //         }
+        //     }
+        // }
+        // checkUnlockedLetters();
         checkLogin(); // Ensure only logged-in users can access this page
     </script>
 </body>
