@@ -15,11 +15,28 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Letter 1 – 12:00 AM</h1>
-        <p>My love,</p>
-        <p>It’s finally here—your special day! From the moment I met you, you’ve made every day brighter...</p>
-        <p>Forever yours, <br> Hatim 💙</p>
+
+    <div class="envelope" onclick="openLetter()"></div>
+
+    <div class="letter-container" id="letter">
+        <h2>My Love,</h2>
+        <p class="letter-text">
+            From the moment we met, I knew you were special. 
+            Every second I spend with you feels like a dream I never want to wake up from.
+            
+            I love you more than words can express. 
+            No distance can ever change that. 
+
+            Forever yours,  
+            Hatim 💌
+        </p>
     </div>
+
+    <script>
+        function openLetter() {
+            document.getElementById("letter").style.display = "block";
+        }
+    </script>
+
 </body>
 </html>
