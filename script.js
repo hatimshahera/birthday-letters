@@ -35,7 +35,7 @@ function unlockLetter(letterNumber, correctAnswer) {
         document.getElementById(linkId).style.display = "block";
 
         // Store a version number (change when you update the letter)
-        localStorage.setItem(`letter${letterNumber}_unlocked`, "v2");
+        localStorage.setItem(`letter${letterNumber}_unlocked`, "v3");
     } else {
         alert("Try again, my love! 💕");
     }
