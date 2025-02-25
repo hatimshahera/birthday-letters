@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome, My Love 💙</h1>
-        <p>Before you enter, answer this personal challenge:</p>
-        <label for="answer">What was the name of our first trip together?</label>
-        <input type="text" id="answer" placeholder="Enter your answer">
-        <button onclick="checkAnswer()">Unlock</button>
-        <p id="message"></p>
+    <div class="login-container">
+        <h2>Enter Your Special Code</h2>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Login</button>
     </div>
 
     <script>
-        function checkAnswer() {
-            const answer = document.getElementById("answer").value.toLowerCase();
-            const correctAnswer = "paris"; // Change this to your personal answer
-
-            if (answer === correctAnswer) {
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            if (password === "123") { // Change this to your actual password
                 localStorage.setItem("authenticated", "true");
-                window.location.href = "letters.html"; // Redirect to the letters page
+                window.location.href = "letters.html";
             } else {
-                document.getElementById("message").textContent = "Try again, my love!";
+                alert("Nope! Try again. 😊");
             }
         }
+
+        if (localStorage.getItem("authenticated") === "true") {
+            window.location.href = "letters.html";
+        }
+
     </script>
 </body>
 </html>

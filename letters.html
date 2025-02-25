@@ -9,35 +9,55 @@
 <body>
     <div class="container">
         <h1>Your Special Letters 💌</h1>
-        <p>Each letter unlocks at the right time!</p>
+        <p>Each letter is locked until you enter the right answer!</p>
 
         <div id="letters-container">
-            <!-- Letter 1 -->
-            <div class="letter" id="letter1">
-                <p>Letter 1 (12:00 AM)</p>
-                <p>Unlocks in: <span id="timer1"></span></p>
-                <div id="q1-container" style="display: none;">
-                    <input type="text" id="q1" placeholder="Answer to unlock">
-                    <button onclick="unlockLetter(1, 'ourfirstdate')">Unlock</button>
-                    <a id="link1" href="letter1.html" target="_blank" style="display:none;">Read Letter</a>
-                </div>
+            <div class="letter">
+                <p>Letter 1</p>
+                <input type="text" id="q1" placeholder="Enter answer">
+                <button onclick="unlockLetter(1, 'ourfirstdate')">Unlock</button>
+                <a id="link1" href="letter1.html" target="_blank" style="display:none;">Read Letter</a>
             </div>
 
-            <!-- Letter 2 -->
-            <div class="letter" id="letter2">
-                <p>Letter 2 (1:00 AM)</p>
-                <p>Unlocks in: <span id="timer2"></span></p>
-                <div id="q2-container" style="display: none;">
-                    <input type="text" id="q2" placeholder="Answer to unlock">
-                    <button onclick="unlockLetter(2, 'favouritecolor')">Unlock</button>
-                    <a id="link2" href="letter2.html" target="_blank" style="display:none;">Read Letter</a>
-                </div>
+            <div class="letter">
+                <p>Letter 2</p>
+                <input type="text" id="q2" placeholder="Enter answer">
+                <button onclick="unlockLetter(2, 'favouritecolor')">Unlock</button>
+                <a id="link2" href="letter2.html" target="_blank" style="display:none;">Read Letter</a>
             </div>
 
             <!-- Add more letters as needed -->
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function checkLogin() {
+            if (localStorage.getItem("authenticated") !== "true") {
+                window.location.href = "index.html"; // Redirect if not logged in
+            }
+        }
+
+        function unlockLetter(letterNumber, correctAnswer) {
+            const inputId = `q${letterNumber}`;
+            const linkId = `link${letterNumber}`;
+            const userAnswer = document.getElementById(inputId).value.toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                document.getElementById(linkId).style.display = "block";
+                localStorage.setItem(`letter${letterNumber}_unlocked`, "true"); // Save unlock status
+            } else {
+                alert("Try again, my love! 💕");
+            }
+        }
+        function checkUnlockedLetters() {
+            for (let i = 1; i <= 24; i++) { // Loop through all letters
+                if (localStorage.getItem(`letter${i}_unlocked`) === "true") {
+                    document.getElementById(`link${i}`).style.display = "block";
+                }
+            }
+        }
+        checkUnlockedLetters();
+        checkLogin(); // Ensure only logged-in users can access this page
+    </script>
 </body>
 </html>
