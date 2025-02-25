@@ -1,9 +1,12 @@
 <script>
     if (localStorage.getItem("letter1_unlocked") !== "true") {
         alert("Oops! You need to unlock this letter first. 😊");
-        window.location.href = "letters.html"; // Redirect back
+        window.location.href = "../letters.html"; // Redirect if locked
+    } else {
+        location.reload(true); // Force refresh to load latest content
     }
 </script>
+
 
 
 <!DOCTYPE html>
