@@ -10,8 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="container">
+        <h1>Happy Birthday, My Love! 🎉</h1>
+        <p>Throughout the day, you will receive special letters every hour.</p>
+        <p>But theres a twist, to access each letter you will have to answer a question. </p>
+        <p>Check your email hourly for the question every hour ! 💌</p>
+    </div>
     <div class="login-container">
-        <h2>Enter Your Special Code</h2>
+        <h2>First Question: Who do you love the most?</h2>
         <input type="password" id="password" placeholder="Enter password">
         <button onclick="checkPassword()">Login</button>
     </div>
@@ -19,7 +25,7 @@
     <script>
         function checkPassword() {
             const password = document.getElementById("password").value;
-            if (password === "123") { // Change this to your actual password
+            if (password === "Hatim") { // Change this to your actual password
                 localStorage.setItem("authenticated", "true");
                 window.location.href = "letters.html";
             } else {
