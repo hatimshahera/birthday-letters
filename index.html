@@ -3,14 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday</title>
+    <title>Welcome</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Happy Birthday, My Love! 🎉</h1>
-        <p>Throughout the day, you will receive special letters just for you.</p>
-        <p>Check your email hourly for a new surprise! 💌</p>
+        <h1>Welcome, My Love 💙</h1>
+        <p>Before you enter, answer this personal challenge:</p>
+        <label for="answer">What was the name of our first trip together?</label>
+        <input type="text" id="answer" placeholder="Enter your answer">
+        <button onclick="checkAnswer()">Unlock</button>
+        <p id="message"></p>
     </div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.toLowerCase();
+            const correctAnswer = "paris"; // Change this to your personal answer
+
+            if (answer === correctAnswer) {
+                localStorage.setItem("authenticated", "true");
+                window.location.href = "letters.html"; // Redirect to the letters page
+            } else {
+                document.getElementById("message").textContent = "Try again, my love!";
+            }
+        }
+    </script>
 </body>
 </html>
